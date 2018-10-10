@@ -1,24 +1,24 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Rule;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-class StrategicPlayerImplementerTest {
+public class StrategicPlayerImplementerTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
     
     @Test
-    void testValidBeginGameInput(){
+    public void testValidBeginGameInput(){
     	StrategicPlayerImplementer player = new StrategicPlayerImplementer();
-		player.beginGame(4, 2, 3);
-		player.beginGame(1, 0, 0);
-		player.beginGame(4, 6, 8);
+			player.beginGame(4, 2, 3);
+			player.beginGame(1, 0, 0);
+			player.beginGame(4, 6, 8);
 		
     }
 	
 	@Test
-	void testInvalidBeginGameInput() {
+	public void testInvalidBeginGameInput() {
 		//thrown.expect(IllegalArgumentException.class);
 		//thrown.expectMessage("Game Parameters Not Possible");
 		
@@ -39,23 +39,38 @@ class StrategicPlayerImplementerTest {
 	}
 
 	@Test
-	void testGetSlotsToRevealOutput() {
-		fail("Not yet implemented");
-	}
-	
+	public void testGetSlotsToRevealOutput() {
+    StrategicPlayerImplementer player = new StrategicPlayerImplementer();
+    int coinsPerWheel = 4, revealsPerSpin = 2, maxNumSpins = 2;
+    player.beginGame(coinsPerWheel, revealsPerSpin, maxNumSpins);
+    CharSequence slotsToReveal = player.getSlotsToReveal();
 
+    //Test length equals coinsPerWheel
+    assertEquals(slotsToReveal.length(), coinsPerWheel);
+
+    //Test number of '?' equals revealsPerSpin
+    int numQuestionMarks = 0;
+    for(int i = 0; i < slotsToReveal.length(); i++) {
+    	if(slotsToReveal.charAt(i) == '?')
+    		numQuestionMarks++;
+    }
+    assertEquals(numQuestionMarks, revealsPerSpin);
+
+    //TODO test '?'s are in proper place (after we establish strategy)
+	}
+	
 	@Test
-	void testValidGetNewCoinStatesInput() {
+	public void testValidGetNewCoinStatesInput() {
 		fail("Not yet implemented");
 	}
 	
 	@Test
-	void testInvalidGetNewCoinStatesInput() {
+	public void testInvalidGetNewCoinStatesInput() {
 		fail("Not implmented");
 	}
 	
 	@Test
-	void testGetNewCoinStatesOutput() {
+	public void testGetNewCoinStatesOutput() {
 		fail("Not implemented");
 	}
 

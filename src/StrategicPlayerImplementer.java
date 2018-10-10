@@ -17,8 +17,16 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 
 	@Override
 	public CharSequence getSlotsToReveal() {
-		// TODO Auto-generated method stub
-		return null;
+		CharSequence slotsToReveal = "";
+
+		for(int i = 0; i < coins; i++) {
+			if(i < reveals)
+				slotsToReveal += "?";
+			else
+				slotsToReveal += "-";
+		}
+
+		return slotsToReveal;
 	}
 
 	@Override
