@@ -3,7 +3,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.rules.ExpectedException;
+
+import java.lang.CharSequence;
+import java.util.stream.Stream;
 
 class StrategicPlayerImplementerTest {
     @Rule
@@ -20,8 +27,6 @@ class StrategicPlayerImplementerTest {
 	
 	@Test
 	void testInvalidBeginGameInput() {
-		//thrown.expect(IllegalArgumentException.class);
-		//thrown.expectMessage("Game Parameters Not Possible");
 		
 		StrategicPlayerImplementer player = new StrategicPlayerImplementer();
 		assertThrows(IllegalArgumentException.class, () ->{
@@ -75,9 +80,23 @@ class StrategicPlayerImplementerTest {
         });
 	}
 	
-	@Test
-	void testGetNewCoinStatesOutput() {
-		fail("Not implemented");
+
+	@ParameterizedTest
+	@CsvSource({"------",
+				"HHTTHHT",
+				"H--H-T--",
+				"--HTT--"})
+	void testGetNewCoinStatesOutput(CharSequence cs) {
+		StrategicPlayerImplementer player = new StrategicPlayerImplementer();
+		CharSequence ret = player.getNewCoinStates(cs);
+		assertEquals(cs.length(), ret.length());
+		for(int i = 0; i < cs.length(); i++) {
+			if(cs.charAt(i) == '-') {
+				assertEquals(ret.charAt(i), '-');
+			}
+			else
+				assertTrue(ret.charAt(i) == 'H' || ret.charAt(i) == 'T');
+		}		
 	}
 
 }
