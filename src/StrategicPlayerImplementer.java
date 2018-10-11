@@ -32,7 +32,19 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 	@Override
 	public CharSequence getNewCoinStates(CharSequence revealedPattern) {
 		// TODO Auto-generated method stub
-		return null;
+
+		StringBuilder flippedPattern = new StringBuilder();
+		for( int i = 0 ; i < revealedPattern.length() ; i++) {
+			if(revealedPattern.charAt(i) == '-') {
+				flippedPattern.append('-');
+			}
+			else {
+				flippedPattern.append('H');
+			}
+				
+		}
+		return flippedPattern;
+		
 	}
 
 }
