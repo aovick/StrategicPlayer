@@ -1,3 +1,4 @@
+import static junit.framework.TestCase.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Rule;
@@ -7,7 +8,7 @@ import org.junit.rules.ExpectedException;
 class StrategicPlayerImplementerTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
-    
+
     @Test
     void testValidBeginGameInput(){
     	StrategicPlayerImplementer player = new StrategicPlayerImplementer();
@@ -46,12 +47,32 @@ class StrategicPlayerImplementerTest {
 
 	@Test
 	void testValidGetNewCoinStatesInput() {
-		fail("Not yet implemented");
+		StrategicPlayerImplementer player = new StrategicPlayerImplementer();
+
+		player.beginGame(4, 4, 4);
+		player.getNewCoinStates("HHHH");
+
+		player.beginGame(4,6,4);
+		player.getNewCoinStates("HHHH--");
+
+		player.beginGame(1,1,4);
+		player.getNewCoinStates("T");
 	}
 	
 	@Test
 	void testInvalidGetNewCoinStatesInput() {
-		fail("Not implmented");
+        StrategicPlayerImplementer player = new StrategicPlayerImplementer();
+
+        player.beginGame(4, 2, 4);
+        assertThrows(IllegalArgumentException.class, () ->{
+            player.getNewCoinStates("----");
+        });
+        assertThrows(IllegalArgumentException.class, () ->{
+            player.getNewCoinStates("HH");
+        });
+        assertThrows(IllegalArgumentException.class, () ->{
+            player.getNewCoinStates("HHHH");
+        });
 	}
 	
 	@Test
