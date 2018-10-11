@@ -50,9 +50,11 @@ public class StrategicPlayerImplementerTest {
 
 	@Test
 	public void testGetSlotsToRevealOutput() {
+    int coinsPerWheel = 4, revealsPerSpin = 5, maxNumSpins = 2;
+
     StrategicPlayerImplementer player = new StrategicPlayerImplementer();
-    int coinsPerWheel = 4, revealsPerSpin = 2, maxNumSpins = 2;
     player.beginGame(coinsPerWheel, revealsPerSpin, maxNumSpins);
+    
     CharSequence slotsToReveal = player.getSlotsToReveal();
 
     //Test length equals coinsPerWheel
@@ -64,7 +66,7 @@ public class StrategicPlayerImplementerTest {
     	if(slotsToReveal.charAt(i) == '?')
     		numQuestionMarks++;
     }
-    assertEquals(numQuestionMarks, revealsPerSpin);
+    assertEquals(numQuestionMarks, Math.min(coinsPerWheel, revealsPerSpin));
 
     //TODO test '?'s are in proper place (after we establish strategy)
 	}

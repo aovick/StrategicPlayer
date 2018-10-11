@@ -4,7 +4,7 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 
 	@Override
 	public void beginGame(int coinsPerWheel, int revealsPerSpin, int maxNumSpins){
-		// TODO Auto-generated method stub
+		
 		if( coinsPerWheel < 1 || revealsPerSpin < 0 || maxNumSpins < 0) {
 			throw new IllegalArgumentException("Game Parameters Not Possible");
 		}
@@ -17,6 +17,7 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 
 	@Override
 	public CharSequence getSlotsToReveal() {
+		
 		CharSequence slotsToReveal = "";
 
 		for(int i = 0; i < coins; i++) {
@@ -31,7 +32,7 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 
 	@Override
 	public CharSequence getNewCoinStates(CharSequence revealedPattern) {
-		// TODO Auto-generated method stub
+		// TODO Check for valid input
 
 		StringBuilder flippedPattern = new StringBuilder();
 		for( int i = 0 ; i < revealedPattern.length() ; i++) {
