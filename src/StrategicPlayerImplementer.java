@@ -18,7 +18,7 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 	@Override
 	public CharSequence getSlotsToReveal() {
 		
-		CharSequence slotsToReveal = "";
+		String slotsToReveal = "";
 
 		for(int i = 0; i < coins; i++) {
 			if(i < reveals)
@@ -26,8 +26,8 @@ public class StrategicPlayerImplementer implements StrategicPlayer{
 			else
 				slotsToReveal += "-";
 		}
-
-		return slotsToReveal;
+		CharSequence retVal = slotsToReveal;
+		return retVal;
 	}
 
 	@Override
