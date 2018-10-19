@@ -1,4 +1,3 @@
-import static junit.framework.TestCase.fail;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Rule;
@@ -6,13 +5,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.rules.ExpectedException;
-
 import java.lang.CharSequence;
-import java.util.stream.Stream;
 
 public class StrategicPlayerImplementerTest {
     @Rule

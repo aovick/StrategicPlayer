@@ -1,0 +1,42 @@
+Strategy for Four Coin Two Revealed
+
+To improve odds of winning, we must improve the number of matching coins with each move as often as possible.
+
+In a 4 coin game there are a total of 16 combinations possible
+    2 all matching
+    8 where 3 match and 1 is different
+    6 where there are 2 of each
+
+Given that the wheel is spun, the first reveal it does not matter which coins we reveal as the odds are the same. We will choose to reveal slots 1 and 2. In general, after flipping coins, we should flip coins to match those coins for all consecutive spins because at least half the coins are already in that orientation.
+By choosing two consecutive slots, if we flip those coins to match, we guaruntee two coins match. This changes the distribution to.
+    2 all matching
+    8 where 3 match and 1 is different
+    6 where there are 2 of each
+
+By choosing two alternating slots the odds are the same, we will choose two consecutive slots.
+
+Revealing two coins there are 3 options. Flip both, Flip one, Flip neither.
+
+If we flip neither, odds do not improve so we will be left with:
+    2 chances to win, 8 cases where 3 match and 6 where two match.
+
+If we always flip coins, even if they match we are left with
+    4 all matching
+    8 where 3 match and 1 is different
+    4 where there are 2 of each.
+
+If we leave matching coins and only flip coins that do not match we are left with.
+    4 all matching
+    6 where 3 match and 1 is different
+    4 where there are 2 of each.
+If we choose the second path, we must change the goal to be a whichever coins are showing.
+
+In either case, the odds after the first spin are not affected.
+
+For the second spin. We have the same choice to either reveal alternating coins or consecutive coins. 
+For case where 3 coins match, our odds do not improve to see the 1 non matching coin no matter which coins we choose to reveal.
+
+Because we have already flipped consecutive coins we know the pattern cannot be any variation of "HTHT", so to remove all patterns of "HHTT" if we see two consecutive coins that matched what we left them the first round, we must flip them, because we know they are the same coins. If we see two coins that do not match, we must also flip them because they don't match the two coins we know are the opposite orientation. 
+
+Using this strategy, after the second spin we can guaruntee that three of the four coins match and the odds are the same for every consecutive spin after that of finding the coin revealing the same two slots. 
+
