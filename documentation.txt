@@ -27,15 +27,22 @@ Developers: Team MNO
 
 
 Backlog:
-As a user I want to simulate a 4 coin, 2 reveal game with optimal strategy.
-As a user I want to analyze an optimal strategy.
 As a user I want a representation of the coin wheel with covered slots and slots to reveal/revealed slots.
 
 
 Completed User stories:
 As a user I want to a Strategic Player implementation to play a coin wheel game, where I specify any number of coins, reveals, and spins.
+As a user I want to simulate a 4 coin, 2 reveal game with optimal strategy.
+As a user I want to analyze an optimal strategy.
 
+Strategy description for 4 coin, 2 reveal game is in file FourCoinStrategy.txt
 
+Four Java source files are included.
+    StrategicPlayer.java - Interface to Implement
+    StrategicPlayerImplementer.java - Implementation of the interface to play a game of any size with any number of coins
+    FourTwoPlayer.java - Implementation of the interface to play a 4 coin, 2 revealed game with optimal strategy.
+
+StrategicPlayer.java
 testGetSlotsToRevealOutput cases:
     - length equals coinsPerWheel
     - number of '?' equals revealsPerSpin
