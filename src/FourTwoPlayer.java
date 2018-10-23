@@ -38,7 +38,7 @@ public class FourTwoPlayer implements StrategicPlayer {
 	}
 	
 	private CharSequence regularSpin(CharSequence revealedPattern) {
-		String returnString = firstCoin + secondCoin + "--";
+		String returnString = goalOrientation + goalOrientation + "--";
 		spin++;
 		CharSequence finishedString = returnString;
 		return finishedString;
