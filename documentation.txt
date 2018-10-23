@@ -1,0 +1,63 @@
+Coin Wheel Game Strategic Player
+Team MNO
+
+Project description:
+The StrategicPlayer Implementer must implement the StrategicPlayer interface to take input from a coin-wheel game set with 4 coins and 2 reveals and play it with an optimal strategy. It must also implement the StrategicPlayer interface to play a game of arbitrary size with arbitrary strategy.
+
+Two implementations:
+	Play any game
+	Play the 4 coin, 2 reveal game with an optimum strategy to analyze
+Strategic Player Interface:
+	void beginGame(int coinsPerWheel, int revealsPerSpin, int maxSpinsPerGame)
+		Initialize game
+	CharSequence getSlotsToReveal()
+		Show the current state of the wheel
+			"------"
+		Return input for what player wants to reveal
+			"-?-??-"
+	CharSequence getNewCoinStates(CharSequence revealedSlotsOfWheel)
+		Show revealed state of the wheel using player's choice
+			"-H-TH-"
+		Return input for what player wants to flip
+			"-H-HH-"
+
+Stakeholders:
+Client: Dr. Paul
+Developers: Team MNO
+
+
+Backlog:
+As a user I want a representation of the coin wheel with covered slots and slots to reveal/revealed slots.
+
+
+Completed User stories:
+As a user I want to a Strategic Player implementation to play a coin wheel game, where I specify any number of coins, reveals, and spins.
+As a user I want to simulate a 4 coin, 2 reveal game with optimal strategy.
+As a user I want to analyze an optimal strategy.
+
+Strategy description for 4 coin, 2 reveal game is in file FourCoinStrategy.txt
+
+Four Java source files are included.
+    StrategicPlayer.java - Interface to Implement
+    StrategicPlayerImplementer.java - Implementation of the interface to play a game of any size with any number of coins
+    FourTwoPlayer.java - Implementation of the interface to play a 4 coin, 2 revealed game with optimal strategy.
+
+StrategicPlayer.java
+testGetSlotsToRevealOutput cases:
+    - length equals coinsPerWheel
+    - number of '?' equals revealsPerSpin
+    - (after we establish strategy) '?' are in proper place
+    
+testGetNewCoinStatesInput cases:
+    - test when input is valid
+    - test when input is invalid
+    
+testGetNewCoinStatesInput cases:
+    - length equals coinsPerWheel
+    - Positions of H, T, and - are preserved from input
+    - (after we establish strategy) H and T spaces changed accordingly
+
+
+
+
+
